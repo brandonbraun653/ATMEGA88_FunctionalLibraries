@@ -14,11 +14,14 @@
 
 //Functional Code
 #include "adc.h"
+#include "comparator.h"
 #include "core_mgmt.h"
 #include "interrupt.h"
 #include "io.h"
 #include "spi.h"
 #include "timer.h"
+#include "twi.h"
+#include "usart.h"
 
 
 
