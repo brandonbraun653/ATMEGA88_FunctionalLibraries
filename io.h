@@ -11,7 +11,11 @@
 
 #include "ONYX88.h"
 
-//Use this for functions like digRead/Write, etc
+
+void digitalWrite(uint8_t pin, uint8_t state);
+void fastWrite(uint8_t port, uint8_t mask);
+uint8_t digitalRead(uint8_t pin);
+uint8_t fastRead(uint8_t port, uint8_t pin);
 
 
 #endif /* IO_H_ */

@@ -6,3 +6,7 @@
  */ 
 
  #include "ONYX88.h"
+
+ void digitalWrite(uint8_t pin, uint8_t state){
+	
+ }
