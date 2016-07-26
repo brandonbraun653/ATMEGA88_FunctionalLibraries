@@ -5,7 +5,7 @@
  *  Author: bbraun
  */ 
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 #ifndef ADC_H_
 #define ADC_H_

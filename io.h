@@ -9,13 +9,21 @@
 #ifndef IO_H_
 #define IO_H_
 
-#include "ONYX88.h"
+#include "onyx.h"
 
+class ioClass : public ADC_Class{
+	public:
+	void pinMode(uint8_t pin, uint8_t direction);
+	void fastWrite(uint8_t pin, uint8_t mode);
+	uint8_t fastRead(uint8_t port);
 
-void digitalWrite(uint8_t pin, uint8_t state);
-void fastWrite(uint8_t port, uint8_t mask);
-uint8_t digitalRead(uint8_t pin);
-uint8_t fastRead(uint8_t port, uint8_t pin);
+	//Constructor
+	ioClass();
+
+	private:
+
+	
+};
 
 
 #endif /* IO_H_ */

@@ -4,7 +4,7 @@
  * Created: 7/20/2016 12:43:42 PM
  *  Author: bbraun
  */ 
- #include "ONYX88.h"
+#include "onyx.h"
 
  
 ADC_Class::ADC_Class(){

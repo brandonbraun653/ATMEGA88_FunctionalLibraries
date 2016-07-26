@@ -9,7 +9,7 @@
 #ifndef COMPARATOR_H_
 #define COMPARATOR_H_
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 
 

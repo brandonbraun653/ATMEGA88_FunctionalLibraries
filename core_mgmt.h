@@ -10,7 +10,7 @@
 #define CORE_MGMT_H_
 
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 
 #endif /* CORE_MGMT_H_ */

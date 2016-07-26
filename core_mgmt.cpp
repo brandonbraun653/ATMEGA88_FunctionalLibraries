@@ -5,6 +5,6 @@
  *  Author: bbraun
  */ 
 
- #include "ONYX88.h"
+#include "onyx.h"
 
  //Use this for System Clock/Sleep Mode/Power Management/System Control/Reset

@@ -9,7 +9,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 
 

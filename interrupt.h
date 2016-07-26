@@ -10,7 +10,7 @@
 #define INTERRUPT_H_
 
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 
 #endif /* INTERRUPT_H_ */

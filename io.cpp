@@ -5,8 +5,20 @@
  *  Author: bbraun
  */ 
 
- #include "ONYX88.h"
+#include "onyx.h"
 
- void digitalWrite(uint8_t pin, uint8_t state){
+ ioClass::ioClass(){
 	
+ }
+
+ void ioClass::pinMode(uint8_t pin, uint8_t direction){
+	
+ }
+
+ void ioClass::fastWrite(uint8_t pin, uint8_t value){
+	
+ }
+
+ uint8_t ioClass::fastRead(uint8_t pin){
+	return 0;
  }

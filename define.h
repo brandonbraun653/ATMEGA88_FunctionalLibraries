@@ -9,10 +9,10 @@
 #ifndef DEFINE_H_
 #define DEFINE_H_
 
-#include "ONYX88.h"
+#include "onyx.h"
 
 #define F_CPU 16000000
-
+#define NONE 0x00
 
 
 
