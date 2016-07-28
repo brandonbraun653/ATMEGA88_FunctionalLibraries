@@ -9,6 +9,7 @@
 
  //Global Object Definitions
 ADC_Class ADC_Controller;
+ioClass IO;
 TimerClass Timer;
 TimerClass Timer1;
 TimerClass Timer2;

@@ -12,6 +12,18 @@
 
 class ADC_Class{
 	public:
+	typedef enum _adcChannel{
+		CHANNEL0,
+		CHANNEL1,
+		CHANNEL2,
+		CHANNEL3,
+		CHANNEL4,
+		CHANNEL5,
+		CHANNEL6,
+		CHANNEL7,
+		TEMPERATURE
+	} adcChannel;
+
 	void begin();
 
 

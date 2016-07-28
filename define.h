@@ -12,6 +12,7 @@
 #include "onyx.h"
 
 #define F_CPU 16000000
+#define MAX_PINS 32
 #define NONE 0x00
 
 

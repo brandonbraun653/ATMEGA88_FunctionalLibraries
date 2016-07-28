@@ -43,3 +43,4 @@ _pinDef pinDef[33] = {
 	{DDRD, PIND, PORTD, PORTD1}, //30
 	{DDRD, PIND, PORTD, PORTD2}  //32
 };
+
