@@ -24,13 +24,9 @@
 #include "timer.h"
 #include "twi.h"
 #include "usart.h"
+#include "watchdog.h"
 
 //Global Class Objects
-extern ADC_Class ADC_Controller;
-extern ioClass IO;
-extern TimerClass Timer;
-extern TimerClass Timer1;
-extern TimerClass Timer2;
 
 //Struct Definitions
 extern _pinDef pinDef[];

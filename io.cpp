@@ -142,6 +142,8 @@ Options to set the state of the pin are:
 
  void ioClass::attachInterrupt(uint8_t pin, void(*function)(void)){
 	attachedFunction = function;
+
+	//NOT FINISHED YET
  }
 
  //Constructor

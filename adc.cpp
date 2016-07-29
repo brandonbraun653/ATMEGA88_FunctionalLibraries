@@ -7,24 +7,61 @@
 #include "onyx.h"
 
  
+ void ADC_Class::begin(){
+	//Ensures quick read time regardless of precision needed
+	ADC_setLeftAdj(true);
+
+
+ }
+
+
+ void ADC_Class::selectPrescale(adcPrescale prescaler){
+	ADC_setPrescaler(prescaler);
+ }
+
+ /*!Sets the resolution*/
+ void ADC_Class::selectResolution(resolution bitDepth){
+	currentRes = bitDepth;
+ }
+
+
+ void ADC_Class::selectAutoTrigger(trigSource trigger){
+	
+ }
+
+
+ void ADC_Class::selectVREF(vref voltageInput){
+	
+ }
+
+ /*! Enables/disables ADC interrupt generation upon conversion complete*/
+ void ADC_Class::interrupts(uint8_t state){
+	if(state)
+		ADCSRA |= (1<<ADATE);
+	else
+		ADCSRA &= ~(1<<ADATE);
+ }
+
+ void ADC_Class::startConversion(adcChannel channel){
+	
+ }
+
+
+ uint8_t ADC_Class::readConversion(adcChannel channel, result byte){
+	if(LOWER_8)
+		return conversionResults[channel][0];
+	else
+		return conversionResults[channel][1];
+ }
+
+
 ADC_Class::ADC_Class(){
 	
  }
 
- /*! Configures the ADCSRA Register
-
- En: Enables ADC hardware if true
- IT_en: Enables interrupt upon Conversion Complete
- preScaler: Scales the main clock for the ADC
- */
- void ADC_configure(uint8_t en, uint8_t IT_en, uint8_t preScaler){
-	//Reset everything
-	ADCSRA = 0;
-
-
-	//NOT FINISHED YET
- }
-
+ /************************************************************************/
+ /* Exported Functions                                                   */
+ /************************************************************************/
  /*!Pre-scales the ADC clock*/
  void ADC_setPrescaler(uint8_t prescaler){
 	//Mask off all bits except lower 3
@@ -36,7 +73,16 @@ ADC_Class::ADC_Class(){
 	ADMUX |= refSelect << 6;
  }
 
- /*!Enables/disables the left adjust feature*/
+ /*!Enables/disables the left adjust feature.
+
+ Regardless of the conversion precision needed, a 10 bit value will 
+ always be calculated. Left adjust modifies how this 10 bit value is 
+ presented to the user. During any read operation, ADCH must be read first
+ and then ADCL, or else the register will not update on the next conversion
+ cycle. If ADC_setLeftAdj(true) is called and only 8 bit precision is required, 
+ it will be sufficient to read ADCH. Otherwise, if ADC_setLeftAdj(false) is called,
+ ADCL must be read and then ADCH, even if only 8 bits is needed. This wastes CPU time. (pg.338)
+ */
  void ADC_setLeftAdj(uint8_t en){
 	if(en)
 		ADMUX |= (1<<ADLAR);
