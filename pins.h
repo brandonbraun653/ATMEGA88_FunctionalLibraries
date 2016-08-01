@@ -12,12 +12,14 @@
 #include "onyx.h"
 
 //Define some macros here like digitalPinToPort and etc.
-//Holds information for each pin used to enable quick look up
+
+
+//Holds information for each pin on the chip. Used to enable quick look up.
 struct _pinDef{
-	uint8_t DDRx;
-	uint8_t PINx;
-	uint8_t PORTx;
-	uint8_t index;
+	volatile uint8_t* DDRx;
+	volatile uint8_t* PINx;
+	volatile uint8_t* PORTx;
+	volatile uint8_t index;
 };
 
 

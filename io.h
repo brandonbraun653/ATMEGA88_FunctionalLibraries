@@ -13,37 +13,18 @@
 
 class ioClass : public ADC_Class{
 	public:
-	typedef enum _pinType{
-		OUTPUT,
-		INPUT,
-		INPUT_PULLUP
-	} pinType;
-
-	typedef enum _pinState{
-		HIGH,
-		LOW,
-		ONE,
-		ZERO,
-		UNDEFINED
-	} pinState;
-
-	typedef enum _portType{
-		B,
-		C,
-		D,
-		E
-	} portType;
-
+	
 	//General Functionality
-	void pinMode(uint8_t pin, pinType type);
-	void pinWrite(uint8_t pin, pinState value);
-	void portWrite(portType port, uint8_t value);
+	void pinMode(uint8_t pin, uint8_t type);
+	void portMode(uint8_t port, uint8_t value);
+	void pinWrite(uint8_t pin, uint8_t value);
+	void portWrite(uint8_t port, uint8_t value);
 	uint8_t pinRead(uint8_t pin);
-	uint8_t portRead(portType port);
+	uint8_t portRead(uint8_t port);
 
 	//Specialized Functionality
 	void attachInterrupt(uint8_t pin, void(*)(void));
-	uint8_t analogRead(adcChannel channelNum);
+	uint8_t analogRead(uint8_t channelNum);
 
 	//Constructor
 	ioClass();

@@ -5,60 +5,6 @@
  *  Author: bbraun
  */ 
 #include "onyx.h"
-
- 
- void ADC_Class::begin(){
-	//Ensures quick read time regardless of precision needed
-	ADC_setLeftAdj(true);
-
-
- }
-
-
- void ADC_Class::selectPrescale(adcPrescale prescaler){
-	ADC_setPrescaler(prescaler);
- }
-
- /*!Sets the resolution*/
- void ADC_Class::selectResolution(resolution bitDepth){
-	currentRes = bitDepth;
- }
-
-
- void ADC_Class::selectAutoTrigger(trigSource trigger){
-	
- }
-
-
- void ADC_Class::selectVREF(vref voltageInput){
-	
- }
-
- /*! Enables/disables ADC interrupt generation upon conversion complete*/
- void ADC_Class::interrupts(uint8_t state){
-	if(state)
-		ADCSRA |= (1<<ADATE);
-	else
-		ADCSRA &= ~(1<<ADATE);
- }
-
- void ADC_Class::startConversion(adcChannel channel){
-	
- }
-
-
- uint8_t ADC_Class::readConversion(adcChannel channel, result byte){
-	if(LOWER_8)
-		return conversionResults[channel][0];
-	else
-		return conversionResults[channel][1];
- }
-
-
-ADC_Class::ADC_Class(){
-	
- }
-
  /************************************************************************/
  /* Exported Functions                                                   */
  /************************************************************************/
@@ -163,7 +109,7 @@ ADC_Class::ADC_Class(){
  */
  void ADC_setAutoTriggerSource(uint8_t sourceSelect){
 	//Mask off unwanted bits
-	ADCSRB |= (0x0F & sourceSelect);
+	ADCSRB |= (0x07 & sourceSelect);
  }
 
  /*!Returns data from ADC Data Register Low*/
@@ -175,3 +121,61 @@ ADC_Class::ADC_Class(){
  uint8_t ADC_readHiReg(){
 	return ADCH;
  }
+ 
+
+ /************************************************************************/
+ /* Class Functions                                                      */
+ /************************************************************************/
+ void ADC_Class::begin(){
+	//Ensures quick read time regardless of precision needed
+	ADC_setLeftAdj(true);
+
+
+ }
+
+
+ void ADC_Class::selectPrescale(uint8_t prescaler){
+	ADC_setPrescaler(prescaler);
+ }
+
+ /*!Sets the resolution*/
+ void ADC_Class::selectResolution(uint8_t bitDepth){
+	currentRes = bitDepth;
+ }
+
+
+ void ADC_Class::selectAutoTrigger(uint8_t trigger){
+	ADC_setAutoTrigger(true);
+	ADC_setAutoTriggerSource(trigger);
+ }
+
+
+ void ADC_Class::selectVREF(uint8_t voltageInput){
+	
+ }
+
+ /*! Enables/disables ADC interrupt generation upon conversion complete*/
+ void ADC_Class::interrupts(uint8_t state){
+	if(state)
+		ADCSRA |= (1<<ADATE);
+	else
+		ADCSRA &= ~(1<<ADATE);
+ }
+
+ void ADC_Class::startConversion(uint8_t channel){
+	
+ }
+
+
+ uint8_t ADC_Class::readConversion(uint8_t channel, uint8_t byte){
+	if(LOWER_8)
+		return conversionResults[channel][0];
+	else
+		return conversionResults[channel][1];
+ }
+
+
+ADC_Class::ADC_Class(){
+	
+ }
+

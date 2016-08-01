@@ -12,65 +12,15 @@
 
 class ADC_Class{
 	public:
-	typedef enum _adcChannel{
-		CHANNEL0 = 0x00,
-		CHANNEL1 = 0x01,
-		CHANNEL2 = 0x02,
-		CHANNEL3 = 0x03,
-		CHANNEL4 = 0x04,
-		CHANNEL5 = 0x05,
-		CHANNEL6 = 0x06,
-		CHANNEL7 = 0x07,
-		TEMPERATURE = 0x08,
-		COMPARATOR = 0x09
-	} adcChannel;
-	
-	typedef enum _adcPrescale{
-		DIV_0 = 0x00,
-		DIV_2 = 0x01,
-		DIV_4 = 0x02,
-		DIV_8 = 0x03,
-		DIV_16 = 0x04,
-		DIV_32 = 0x05,
-		DIV_64 = 0x06,
-		DIV_128 = 0x07
-	} adcPrescale;
-
-	typedef enum _resolution{
-		_8BIT,
-		_10BIT
-	} resolution;
-
-	typedef enum _trigSource{
-		FREE_RUNNING,
-		ANALOG_COMP,
-		EXT_INT0,
-		TIMER0_COMPA,
-		TIMER0_OVF,
-		TIMER1_COMPB,
-		TIMER1_OVF,
-		TIMER1_CAPT
-	} trigSource;
-
-	typedef enum _VREF{
-		AREF,
-		AVCC,
-		BG
-	} vref;
-
-	typedef enum _outReg{
-		LOWER_8,
-		UPPER_2
-	} result;
 
 	void begin();
-	void selectPrescale(adcPrescale prescaler);
-	void selectResolution(resolution bitDepth);
-	void selectAutoTrigger(trigSource trigger);
-	void selectVREF(vref voltageInput);
+	void selectPrescale(uint8_t prescaler);
+	void selectResolution(uint8_t bitDepth);
+	void selectAutoTrigger(uint8_t trigger);
+	void selectVREF(uint8_t voltageInput);
 	void interrupts(uint8_t state);
-	void startConversion(adcChannel channel);
-	uint8_t readConversion(adcChannel channel, result byte);
+	void startConversion(uint8_t channel);
+	uint8_t readConversion(uint8_t channel, uint8_t byte);
 
 	//Constructor
 	ADC_Class();
@@ -79,7 +29,7 @@ class ADC_Class{
 	//Stores 10bit ADC conversion result in two bytes:
 	//conversionResults[channel][x]->[0]=lower 8 bits, [1]=upper 2 bits 
 	uint8_t conversionResults[10][2]; 
-	resolution currentRes;
+	uint8_t currentRes;
 };
 
 

@@ -10,14 +10,19 @@
 1) Use a forced check on the status of a pwm control pin before writing it high.
    If the other mosfet for that phase is on, wait until it shuts off. This can 
    prevent unwanted blown mosfets...
+
+2) Somehow move the pin definitions to PROGMEM space. It eats up RAM.
 */
+
 
 
 int main(void)
 {
-    /* Replace with your application code */
+	
+
     while (1) 
     {
+		
     }
 }
 
