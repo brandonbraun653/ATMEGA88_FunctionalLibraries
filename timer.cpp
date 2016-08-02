@@ -8,6 +8,6 @@
 #include "onyx.h"
 
  //Constructor
- TimerClass::TimerClass(){
-	
+ TimerClass::TimerClass(uint8_t instance){
+	_timer = instance;
  }

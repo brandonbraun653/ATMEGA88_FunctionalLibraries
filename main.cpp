@@ -19,6 +19,7 @@
 int main(void)
 {
 	
+	TimerClass Timer1(TIMER1);
 
     while (1) 
     {
