@@ -25,7 +25,20 @@ class TimerClass{
 	private:
 	uint8_t _timer;
 
-	void setPrescaler(uint8_t instance, uint8_t prescale);
+	void	configurePrescaler(uint8_t instance, uint8_t prescale);
+	void	resetPrescaler(uint8_t instance);
+	void	selectClock(uint8_t instance, uint8_t clkSel);
+	void	synchronizeTimers(uint8_t sync);
+	void	configureMode(uint8_t instance, uint8_t mode);
+	void	configureWaveformGeneration(uint8_t instance, uint8_t mode);
+	void	useICNoiseCanceler(uint8_t value);
+	void	edgeSelectIC(uint8_t edgeType);
+	uint8_t readICReg(uint8_t reg);
+	void	forceOutputCompare(uint8_t instance, uint8_t channel);
+	void	writeReg(uint8_t instance, uint8_t reg, uint8_t value);
+	void    configureInterrupts(uint8_t instance, uint8_t configuration);
+
+
 };
 
 
