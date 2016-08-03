@@ -91,30 +91,5 @@
 #define LOWER_8 0x08
 #define UPPER_2 0x02
 
-/*****TIMER*****/
-//Available Instances
-#define TIMER0	0x00
-#define TIMER1	0x01
-#define TIMER2	0x02
 
-//Timer Modes
-#define TIMER_MODE_NORMAL	0x00
-#define TIMER_MODE_CTC		0x01
-#define TIMER_MODE_FASTPWM  0x02
-#define TIMER_MODE_PHASEPWM 0x03
-
-//Timer Compare Output Modes
-#define TCO_MODE_NORMAL	0x00
-#define TCO_MODE_TOGGLE 0x01
-#define TCO_MODE_CLEAR  0x02
-#define TCO_MODE_SET	0x03
-
-//Pre-scaler
-#define TCNT_NO_CLOCK	0x00
-#define TCNT_DIV1		0x01
-#define TCNT_DIV8		0x02
-#define TCNT_DIV32		0x03
-#define TCNT_DIV64		0x04
-#define TCNT_DIV256		0x05
-#define TCNT_DIV1024	0x06
 #endif /* DEFINE_H_ */
